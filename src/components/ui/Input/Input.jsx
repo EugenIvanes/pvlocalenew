@@ -1,4 +1,6 @@
 import Icon from "../Icon/Icon";
+import Spinner from "../Spinner/Spinner";
+import InlineMessage from "../InlineMessage/InlineMessage";
 
 export default function Input({
   id,
@@ -7,48 +9,107 @@ export default function Input({
   placeholder = "",
   value,
   onChange,
+
   status = "default", // default | warning | destructive | success
   size = "large", // medium | large
+
   required = false,
   disabled = false,
   readOnly = false,
   loading = false,
+
+  helperText,
+  errorText,
+  warningText,
+
   message,
-  messageIcon,
+  messageType = "info",
+  showMessageIcon,
+
   leadingIcon,
   trailingIcon,
+
   className = "",
   ...props
 }) {
   const inputClass =
-    status === "default" ? "input" : `input--${status}`;
+    status === "default"
+      ? "input"
+      : `input--${status}`;
 
-  const sizeClass = size === "medium" ? "input--medium" : "";
-  const wrapperSizeClass = size === "medium" ? "input-wrapper--medium" : "";
+  const sizeClass =
+    size === "medium"
+      ? "input--medium"
+      : "";
 
-  const hasIcons = leadingIcon || trailingIcon || loading;
+  const wrapperSizeClass =
+    size === "medium"
+      ? "input-wrapper--medium"
+      : "";
 
-  const statusIcons = {
-      warning: "warning-filled",
-      destructive: "circle-error-filled",
-      success: "circle-checkmark-filled",
-};
+  const hasIcons =
+    leadingIcon ||
+    trailingIcon ||
+    loading;
 
-const iconName = messageIcon || statusIcons[status];
+  const finalMessage =
+    errorText ||
+    warningText ||
+    message ||
+    helperText;
+
+  const finalMessageType =
+    errorText
+      ? "error"
+      : warningText
+      ? "warning"
+      : messageType;
+
+  const shouldShowIcon =
+    showMessageIcon ??
+    Boolean(
+      errorText ||
+      warningText ||
+      message
+    );
 
   return (
     <div className={`input-group ${className}`}>
       {label && (
-        <label htmlFor={id} className={required ? "required" : ""}>
+        <label
+          htmlFor={id}
+          className={
+            required
+              ? "required"
+              : ""
+          }
+        >
           {label}
         </label>
       )}
 
       {hasIcons ? (
-        <div className={`input-wrapper ${wrapperSizeClass} ${loading ? "is-loading" : ""}`}>
+        <div
+          className={[
+            "input-wrapper",
+            wrapperSizeClass,
+            loading
+              ? "is-loading"
+              : "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+        >
           {leadingIcon && (
             <span className="input-icon left">
-              <Icon name={leadingIcon} size={size === "medium" ? "md" : "lg"} />
+              <Icon
+                name={leadingIcon}
+                size={
+                  size === "medium"
+                    ? "md"
+                    : "lg"
+                }
+              />
             </span>
           )}
 
@@ -65,10 +126,22 @@ const iconName = messageIcon || statusIcons[status];
           />
 
           {loading ? (
-            <span className="spinner spinner--extra-small spinner--brand"></span>
+            <span className="input-spinner">
+              <Spinner
+                size="extra-small"
+                variant="brand"
+              />
+            </span>
           ) : trailingIcon ? (
             <span className="input-icon right">
-              <Icon name={trailingIcon} size={size === "medium" ? "md" : "lg"} />
+              <Icon
+                name={trailingIcon}
+                size={
+                  size === "medium"
+                    ? "md"
+                    : "lg"
+                }
+              />
             </span>
           ) : null}
         </div>
@@ -86,13 +159,15 @@ const iconName = messageIcon || statusIcons[status];
         />
       )}
 
-      {message && (
-          <div className={`input-message ${status}`}>
-            {iconName && status !== "default" && (
-              <Icon name={iconName} size="sm" />
-            )}
-            <span>{message}</span>
-          </div>
+      {finalMessage && (
+        <InlineMessage
+          type={finalMessageType}
+          size="small"
+          showIcon={shouldShowIcon}
+          className="mud-mt-4"
+        >
+          {finalMessage}
+        </InlineMessage>
       )}
     </div>
   );

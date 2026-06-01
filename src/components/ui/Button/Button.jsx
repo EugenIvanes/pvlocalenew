@@ -1,5 +1,3 @@
-// src/components/ui/Button/Button.jsx
-
 export default function Button({
   children,
   variant = "filled", // filled | outline | text
