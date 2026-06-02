@@ -30,6 +30,20 @@ import AvatarStack from "./components/ui/Avatar/AvatarStack.jsx";
 import InlineMessage from "./components/ui/InlineMessage/InlineMessage.jsx";
 import InfoBox from "./components/ui/InfoBox/InfoBox.jsx";
 import Banner from "./components/ui/Banner/Banner.jsx";
+import BadgeButton from "./components/ui/BadgeButton/BadgeButton.jsx";
+import DateInput from "./components/ui/Input/DateInput.jsx";
+import DatePicker from "./components/ui/DatePicker/DatePicker.jsx";
+import Flag from "./components/ui/Flag/Flag.jsx";
+import FileUpload from "./components/ui/FileUpload/FileUpload.jsx";
+import Dropzone from "./components/ui/Dropzone/Dropzone.jsx";
+import Footer from "./components/ui/Footer/Footer.jsx";
+import ageLogo from "./assets/logos/age.svg";
+import govLogo from "./assets/logos/gov.svg";
+import mastercardLogo from "./assets/logos/payment-method-mastercard.svg";
+import visaLogo from "./assets/logos/payment-method-visa.svg";
+import mpayLogo from "./assets/logos/mpay.png";
+import appstoreBadge from "./assets/logos/app-store-badge.svg";
+import playmarketBadge from "./assets/logos/play-markep.svg";
 
 function App() {
     const [search, setSearch] = useState("");
@@ -67,9 +81,71 @@ function App() {
             status: "În stoc",
         },
     ];
+    const [date, setDate] = useState("2025-01-11");
+    const [files, setFiles] = useState([]);
     return (
         <>
-            <Banner type="info" showClose={false} >
+            <Dropzone
+                id="dropzone"
+            />
+            <FileUpload
+                id="attachments"
+                multiple
+                onChange={(selectedFiles) => {
+                    setFiles(selectedFiles);
+                }}
+            />
+            <Button
+                onClick={() => {
+                    console.log(files);
+                }}
+            >
+                Submit
+            </Button>
+            <FileUpload
+                id="image-upload"
+                multiple
+                imagePreview
+                accept="image/*"
+            />
+            <FileUpload
+                id="document-upload"
+                multiple
+            />
+            <FileUpload
+                id="document-upload"
+                multiple={false}
+            />
+            <FileUpload
+                id="document-upload"
+            />
+            <Flag code="md"/>
+            <Flag code="ro"/>
+            <Flag code="ua"/>
+            <Flag code="eu"/>
+            <DatePicker
+                id="birth-date"
+                label="Data nașterii"
+                value={date}
+                onChange={(isoDate) => setDate(isoDate)}
+            />
+            <DateInput
+                id="birthDate"
+                label="Data nașterii"
+                // value={birthDate}
+                // onChange={(e) => setBirthDate(e.target.value)}
+                // helperText="Enter date in DD/MM/YYYY format"
+                errorText="Invalid date format"
+            />
+            <BadgeButton platform="mpay"/>
+            <BadgeButton platform="mpass"/>
+            <BadgeButton platform="msign"/>
+            <BadgeButton platform="mpower"/>
+            <BadgeButton platform="mdelivery"/>
+            <BadgeButton platform="mpass">
+                Intră cu MPass
+            </BadgeButton>
+            <Banner type="info" showClose={false}>
                 Scheduled maintenance today. Some services may be temporarily unavailable.
                 <Link variant="white" href="/dashboard">shdkjhfksdf</Link>
             </Banner>
@@ -584,6 +660,83 @@ function App() {
                 <Icon name="circle-error" size="sm"/>
               </span>
             </Tooltip>
+            <Footer
+                brand={{
+                    logo: mpayLogo,
+                    logoAlt: "MPay logo",
+                    title: "mpay",
+                    description: "serviciul guvernamental de plăți electronice",
+                    extraDescription: "EVO simplifică relația ta cu statul și serviciile publice.",
+                }}
+                contacts={[
+                    {
+                        icon: "phone",
+                        label: "0 (22) 820 000",
+                        href: "tel:022820000",
+                    },
+                    {
+                        icon: "envelope",
+                        label: "suport.mpay@gov.md",
+                        href: "mailto:suport.mpay@gov.md",
+                    },
+                ]}
+                navigation={[
+                    {
+                        title: "Platformă",
+                        links: [
+                            {label: "Acasă", href: "/"},
+                            {label: "Servicii", href: "/services"},
+                            {label: "Ajutor", href: "/help"},
+                        ],
+                    },
+                    {
+                        title: "Informații",
+                        links: [
+                            {label: "Despre", href: "/about"},
+                            {label: "Contacte", href: "/contacts"},
+                        ],
+                    },
+                ]}
+                payments={[
+                    {src: mastercardLogo, alt: "Mastercard"},
+                    {src: visaLogo, alt: "Visa"},
+                ]}
+                apps={[
+                    {
+                        href: "#",
+                        label: "Descarcă din App Store",
+                        src: appstoreBadge,
+                    },
+                    {
+                        href: "#",
+                        label: "Descarcă din Google Play",
+                        src: playmarketBadge,
+                    },
+                ]}
+                logos={[
+                    {
+                        href: "#",
+                        src: ageLogo,
+                        alt: "Agenția de Guvernare Electronică",
+                    },
+                    {
+                        href: "#",
+                        src: govLogo,
+                        alt: "Guvernul Republicii Moldova",
+                    },
+                ]}
+                socials={[
+                    {type: "facebook", label: "Facebook", href: "#"},
+                    {type: "instagram", label: "Instagram", href: "#"},
+                    {type: "youtube", label: "YouTube", href: "#"},
+                    {type: "linkedin", label: "LinkedIn", href: "#"},
+                ]}
+                legalLinks={[
+                    {label: "Termeni și condiții", href: "#"},
+                    {label: "Politica de confidențialitate", href: "#"},
+                ]}
+                copyright="© 2026 Agenția de Guvernare Electronică. Toate drepturile rezervate."
+            />
         </>
     )
 }

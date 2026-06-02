@@ -669,35 +669,36 @@
 }
 @font-face {
   font-family: "Onest";
-  src: url("../../../../pvage/pvage/src/assets/fonts/Onest/OnestLight1602-hint.woff") format("woff"), url("../../../../pvage/pvage/src/assets/fonts/Onest/OnestLight1602-hint.ttf") format("truetype");
+  src: url("../assets/fonts/Onest/OnestLight1602-hint.woff") format("woff"), url("../assets/fonts/Onest/OnestLight1602-hint.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Onest";
-  src: url("../../../../pvage/pvage/src/assets/fonts/Onest/OnestRegular1602-hint.woff") format("woff"), url("../../../../pvage/pvage/src/assets/fonts/Onest/OnestRegular1602-hint.ttf") format("truetype");
+  src: url("../assets/fonts/Onest/OnestRegular1602-hint.woff") format("woff"), url("../assets/fonts/Onest/OnestRegular1602-hint.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Onest";
-  src: url("../../../../pvage/pvage/src/assets/fonts/Onest/OnestMedium1602-hint.woff") format("woff"), url("../../../../pvage/pvage/src/assets/fonts/Onest/OnestMedium1602-hint.ttf") format("truetype");
+  src: url("../assets/fonts/Onest/OnestMedium1602-hint.woff") format("woff"), url("../assets/fonts/Onest/OnestMedium1602-hint.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Onest";
-  src: url("../../../../pvage/pvage/src/assets/fonts/Onest/OnestBold1602-hint.woff") format("woff"), url("../../../../pvage/pvage/src/assets/fonts/Onest/OnestBold1602-hint.ttf") format("truetype");
+  src: url("../assets/fonts/Onest/OnestBold1602-hint.woff") format("woff"), url("../assets/fonts/Onest/OnestBold1602-hint.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "JetBrainsMono";
-  src: url("../../../../pvage/pvage/src/assets/fonts/JetBrainsMono-2.304/fonts/webfonts/JetBrainsMono-Medium.woff2") format("woff2"), url("../../../../pvage/pvage/src/assets/fonts/JetBrainsMono-2.304/fonts/ttf/JetBrainsMono-Medium.ttf") format("truetype");
+  src: url("../assets/fonts/JetBrainsMono-2.304/fonts/webfonts/JetBrainsMono-Medium.woff2") format("woff2"),
+    url("../assets/fonts/JetBrainsMono-2.304/fonts/ttf/JetBrainsMono-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
