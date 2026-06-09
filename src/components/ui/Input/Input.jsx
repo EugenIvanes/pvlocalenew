@@ -1,4 +1,4 @@
-import Icon from "../Icon/Icon";
+import Icon from "../Icon/Icon.jsx";
 import Spinner from "../Spinner/Spinner";
 import InlineMessage from "../InlineMessage/InlineMessage";
 

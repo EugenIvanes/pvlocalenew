@@ -1,4 +1,4 @@
-import Icon from "../Icon/Icon";
+import Icon from "../Icon/Icon.jsx";
 
 function formatSize(size) {
   if (!size) return "0 MB";

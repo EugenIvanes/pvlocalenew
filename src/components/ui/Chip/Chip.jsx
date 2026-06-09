@@ -1,4 +1,4 @@
-import Icon from "../Icon/Icon";
+import Icon from "../Icon/Icon.jsx";
 import Avatar from "../Avatar/Avatar";
 
 export default function Chip({

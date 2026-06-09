@@ -1,4 +1,4 @@
-import Icon from "../Icon/Icon";
+import Icon from "../Icon/Icon.jsx";
 
 const icons = {
   info: "circle-info-filled",

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import Icon from "../Icon/Icon";
+import Icon from "../Icon/Icon.jsx";
 
 export default function Textarea({
   id,

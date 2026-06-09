@@ -1,4 +1,4 @@
-import Icon from "../Icon/Icon.js";
+import Icon from "../Icon/Icon.jsx";
 export default function StatusTag({
   children,
   variant = "neutral",

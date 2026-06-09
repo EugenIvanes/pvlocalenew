@@ -1,5 +1,5 @@
 import Button from "./components/ui/Button/Button.jsx";
-import Icon from "./components/ui/Icon/Icon.js";
+import Icon from "./components/ui/Icon/Icon.jsx";
 import Input from "./components/ui/Input/Input.jsx";
 import Textarea from "./components/ui/Textarea/Textarea.jsx";
 import {useState} from "react";
@@ -11,10 +11,10 @@ import Select from "./components/ui/Select/Select.jsx";
 import Badge from "./components/ui/Badge/Badge.jsx";
 import Table from "./components/ui/Table/Table.jsx";
 import Pagination from "./components/ui/Pagination/Pagination.jsx";
-import Modal from "./components/ui/Model/Model.jsx";
+import Modal from "./components/ui/Modal/Modal.jsx";
 import Tabs from "./components/ui/Tabs/Tabs.jsx";
 import Accordion from "./components/ui/Acodrion/Acordion.jsx";
-// import CookieBanner from "./components/ui/CookieBanner/CookieBanner.jsx";
+import CookieBanner from "./components/ui/CookieBanner/CookieBanner.jsx";
 import Breadcrumbs from "./components/ui/Breadcrumb/Breadcrumb.jsx";
 import Tooltip from "./components/ui/Tooltip/Tooltip.jsx";
 import "./js/Tooltip/tooltip.js";
@@ -42,8 +42,13 @@ import govLogo from "./assets/logos/gov.svg";
 import mastercardLogo from "./assets/logos/payment-method-mastercard.svg";
 import visaLogo from "./assets/logos/payment-method-visa.svg";
 import mpayLogo from "./assets/logos/mpay.png";
+import msignLogo from "./assets/logos/m-platforms/m-sign.svg";
 import appstoreBadge from "./assets/logos/app-store-badge.svg";
 import playmarketBadge from "./assets/logos/play-markep.svg";
+import Menu from "./components/ui/Menu/Menu.jsx";
+import ProgressTracker from "./components/ui/ProgressTracker/ProgressTracker.jsx";
+import SegmentedControls from "./components/ui/SegmentedControls/SegmentedControls.jsx";
+import Header from "./components/ui/Header/Header.jsx";
 
 function App() {
     const [search, setSearch] = useState("");
@@ -83,8 +88,174 @@ function App() {
     ];
     const [date, setDate] = useState("2025-01-11");
     const [files, setFiles] = useState([]);
+    const [segment, setSegment] = useState("one");
     return (
         <>
+            <Header
+                preHeader={{
+                    logo: ageLogo,
+                    href: "/",
+                    label: "EVO - Agenția de Guvernare Electronică",
+                }}
+                brand={{
+                    logo: ageLogo,
+                    alt: "EVO",
+                    href: "/",
+                }}
+                languages={[
+                    {label: "Română", shortLabel: "Ro", value: "ro"},
+                    {label: "English", shortLabel: "En", value: "en"},
+                ]}
+                activeLanguage="ro"
+                navItems={[
+                    {
+                        label: "Servicii",
+                        mega: [
+                            {
+                                title: "Documente",
+                                links: [
+                                    {label: "Buletin", href: "#"},
+                                    {label: "Pașaport", href: "#"},
+                                ],
+                            },
+                        ],
+                    },
+                ]}
+                auth={{
+                    isAuthenticated: true,
+                }}
+                user={{
+                    name: "Eugeniu Ivanes",
+                    role: "Administrator",
+                    avatar: "https://i.pravatar.cc/100",
+                }}
+                platforms={[
+                    {
+                        title: "mpay",
+                        description: "plătește",
+                        href: "https://mpay.gov.md/",
+                        logo: mpayLogo,
+                        alt: "Sigla M-Pay",
+                    },
+                ]}
+            />
+            {/*<Header*/}
+            {/*    preHeader={{logo: ageLogo, alt: "EVO", href: "/", label: "EVO - Agenția de Guvernare Electronică"}}*/}
+            {/*    languages={[*/}
+            {/*        {label: "Română", shortLabel: "Ro", value: "ro"},*/}
+            {/*        {label: "English", shortLabel: "En", value: "en"},*/}
+            {/*        {label: "Français", shortLabel: "Fr", value: "fr"},*/}
+
+            {/*    ]}*/}
+            {/*    activeLanguage="ro"*/}
+            {/*    brand={{*/}
+            {/*        logo: ageLogo,*/}
+            {/*        alt: "EVO",*/}
+            {/*        href: "/",*/}
+            {/*    }}*/}
+            {/*    navItems={[*/}
+            {/*        {*/}
+            {/*            label: "Servicii",*/}
+            {/*            mega: [*/}
+            {/*                {*/}
+            {/*                    title: "Documente",*/}
+            {/*                    links: [*/}
+            {/*                        {label: "Buletin", href: "#"},*/}
+            {/*                        {label: "Pașaport", href: "#"},*/}
+            {/*                    ],*/}
+            {/*                },*/}
+            {/*                {*/}
+            {/*                    title: "Companii",*/}
+            {/*                    links: [*/}
+            {/*                        {label: "Înregistrare companie", href: "#"},*/}
+            {/*                        {label: "Licențe", href: "#"},*/}
+            {/*                    ],*/}
+            {/*                },*/}
+            {/*                {*/}
+            {/*                    title: "Companii",*/}
+            {/*                    links: [*/}
+            {/*                        {label: "Înregistrare companie", href: "#"},*/}
+            {/*                        {label: "Licențe", href: "#"},*/}
+            {/*                    ],*/}
+            {/*                },*/}
+            {/*            ],*/}
+            {/*        },*/}
+            {/*        {*/}
+            {/*            label: "Despre",*/}
+            {/*            children: [*/}
+            {/*                {label: "Echipa noastră", href: "#"},*/}
+            {/*                {label: "Echipa noastră", href: "#"},*/}
+            {/*                {label: "Echipa noastră", href: "#"}*/}
+            {/*            ]*/}
+            {/*        },*/}
+            {/*        {*/}
+            {/*            label: "Servicii",*/}
+            {/*            link: "/"*/}
+            {/*        }*/}
+            {/*    ]}*/}
+            {/*    auth={{*/}
+            {/*        isAuthenticated: false,*/}
+            {/*        loginText: "Intră în cabinet",*/}
+            {/*        loginHref: "#",*/}
+            {/*        secondaryText: "Obține semnătura",*/}
+            {/*        secondaryHref: "#",*/}
+            {/*    }}*/}
+            {/*    platforms={[*/}
+            {/*        {*/}
+            {/*            title: "mpay",*/}
+            {/*            description: "plătește",*/}
+            {/*            href: "https://mpay.gov.md/",*/}
+            {/*            logo: mpayLogo,*/}
+            {/*            alt: "Sigla M-Pay",*/}
+            {/*        },*/}
+            {/*        {*/}
+            {/*            title: "msign",*/}
+            {/*            description: "semnează",*/}
+            {/*            href: "https://msign.gov.md/",*/}
+            {/*            logo: msignLogo,*/}
+            {/*            alt: "Sigla M-Sign",*/}
+            {/*        },*/}
+            {/*    ]}*/}
+            {/*/>*/}
+            <SegmentedControls
+                value={segment}
+                onChange={setSegment}
+                items={[
+                    {label: "Label", value: "one"},
+                    {label: "Label", value: "two"},
+                    {label: "Label", value: "three"},
+                ]}
+            />
+            <ProgressTracker
+                currentStep={4}
+                steps={[
+                    {label: "Date personale"},
+                    {label: "Documente"},
+                    {label: "Confirmare"},
+                    {label: "Finalizare"},
+                ]}
+            />
+            <ProgressTracker
+                orientation="vertical"
+                currentStep={5}
+                steps={[
+                    {label: "Step"},
+                    {label: "Step"},
+                    {label: "Step"},
+                    {label: "Step"},
+                    {label: "Step"},
+                    {label: "Step"},
+                    {label: "Step"},
+                    {label: "Step"},
+                ]}
+            />
+            <Menu
+                items={[
+                    {label: "Editează", icon: "edit"},
+                    {label: "Copiază", icon: "copy"},
+                    {label: "Șterge", icon: "trash", destructive: true},
+                ]}
+            />
             <Dropzone
                 id="dropzone"
             />
@@ -687,6 +858,20 @@ function App() {
                             {label: "Acasă", href: "/"},
                             {label: "Servicii", href: "/services"},
                             {label: "Ajutor", href: "/help"},
+                        ],
+                    },
+                    {
+                        title: "Informații",
+                        links: [
+                            {label: "Despre", href: "/about"},
+                            {label: "Contacte", href: "/contacts"},
+                        ],
+                    },
+                    {
+                        title: "Informații",
+                        links: [
+                            {label: "Despre", href: "/about"},
+                            {label: "Contacte", href: "/contacts"},
                         ],
                     },
                     {

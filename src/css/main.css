@@ -15759,7 +15759,18 @@ p {
 .progress-tracker.progress-tracker--vertical .progress-step:last-child::after {
   display: none;
 }
-
+.progress-tracker.progress-tracker--vertical
+  .progress-step:last-child {
+  height: auto;
+}
+.progress-tracker.progress-tracker--vertical
+  .progress-step:first-child:not(
+    .progress-step--current,
+    .progress-step--incomplete,
+    .progress-step--blocked
+  )::after {
+  display: block;
+}
 #tracker-mobile.progress-tracker {
   gap: var(--spacing-6, 6px);
 }

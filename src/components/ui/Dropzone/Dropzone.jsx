@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import Icon from "../Icon/Icon";
+import Icon from "../Icon/Icon.jsx";
 import UploadItem from "../UploadItem/UploadItem.jsx";
 
 export default function Dropzone({

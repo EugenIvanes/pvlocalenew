@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import Icon from "../Icon/Icon";
+import Icon from "../Icon/Icon.jsx";
 
 const weekdays = ["M", "T", "W", "T", "F", "S", "S"];
 const months = [

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Icon from "../Icon/Icon";
+import Icon from "../Icon/Icon.jsx";
 import Badge from "../Badge/Badge";
 
 export default function Tabs({

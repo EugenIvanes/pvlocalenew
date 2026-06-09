@@ -1,4 +1,4 @@
-import Icon from "../Icon/Icon";
+import Icon from "../Icon/Icon.jsx";
 
 function getPaginationItems(currentPage, totalPages, maxSlots = 7) {
   if (totalPages <= maxSlots) {

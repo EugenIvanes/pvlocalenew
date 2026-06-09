@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Icon from "../Icon/Icon";
+import Icon from "../Icon/Icon.jsx";
 import Button from "../Button/Button";
 
 export default function Modal({

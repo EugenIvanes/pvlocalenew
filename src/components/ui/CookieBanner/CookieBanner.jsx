@@ -2,7 +2,7 @@ import {useState} from "react";
 import Button from "../Button/Button";
 import Switch from "../Button/Switch";
 import Badge from "../Badge/Badge";
-import Icon from "../Icon/Icon";
+import Icon from "../Icon/Icon.jsx";
 
 export default function CookieBanner({
                                          onAcceptAll,

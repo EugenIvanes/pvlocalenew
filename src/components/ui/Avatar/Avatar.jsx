@@ -1,4 +1,4 @@
-import Icon from "../Icon/Icon";
+import Icon from "../Icon/Icon.jsx";
 import Badge from "../Badge/Badge.jsx";
 
 export default function Avatar({

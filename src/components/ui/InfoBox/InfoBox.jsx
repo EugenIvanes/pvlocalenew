@@ -1,4 +1,4 @@
-import Icon from "../Icon/Icon";
+import Icon from "../Icon/Icon.jsx";
 import Button from "../Button/Button";
 import Link from "../Link/Link";
 
